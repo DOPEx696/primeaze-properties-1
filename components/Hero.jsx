@@ -1,9 +1,10 @@
+'use client';
 import Link from 'next/link';
 
 export default function Hero({ tagline, subtext, showCategoryCards = false }) {
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 md:px-8 bg-primary-dark pt-20 overflow-hidden">
-      
+
       {/* Background with abstract shapes/gradients since we don't have images yet */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#3a0002] via-primary-dark to-primary-dark"></div>
@@ -13,21 +14,21 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
       </div>
 
       <div className="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center mt-12 mb-20">
-        <span className="inline-block py-1 px-3 border border-gold/40 rounded-full text-gold text-xs font-semibold tracking-wider uppercase mb-6 animate-fade-in-up" style={{animationDelay: '100ms'}}>
+        <span className="inline-block py-1 px-3 border border-gold/40 rounded-full text-gold text-xs font-semibold tracking-wider uppercase mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           Exclusively Curated Properties
         </span>
-        
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style={{animationDelay: '200ms'}}>
+
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           {tagline}
         </h1>
-        
-        <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mb-10 animate-fade-in-up" style={{animationDelay: '300ms'}}>
+
+        <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mb-10 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
           {subtext}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center animate-fade-in-up w-full sm:w-auto" style={{animationDelay: '400ms'}}>
-          <a 
-            href="https://v757kd6yq4.zite.so/" 
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center animate-fade-in-up w-full sm:w-auto" style={{ animationDelay: '400ms' }}>
+          <a
+            href="https://v757kd6yq4.zite.so/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 bg-gold text-primary-dark font-bold rounded shadow-[0_0_20px_rgba(234,194,128,0.4)] hover:shadow-[0_0_30px_rgba(234,194,128,0.6)] transition-all hover:-translate-y-1 text-center"
@@ -35,15 +36,15 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
             Register to Hold
             <span className="block text-[10px] font-normal mt-1 opacity-80">Hold your home before someone else does</span>
           </a>
-          
-          <button 
+
+          <button
             onClick={(e) => {
               e.preventDefault();
               const el = document.getElementById('enquire');
-              if(el) {
-                 const yOffset = -80; 
-                 const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                 window.scrollTo({ top: y, behavior: 'smooth' });
+              if (el) {
+                const yOffset = -80;
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
               }
             }}
             className="w-full sm:w-auto px-8 py-4 border-2 border-rust text-light-bg font-bold rounded hover:bg-rust/20 transition-all text-center flex flex-col justify-center h-full"
@@ -55,19 +56,19 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
       </div>
 
       {showCategoryCards && (
-        <div className="relative z-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full mx-auto pb-12 animate-fade-in-up" style={{animationDelay: '600ms'}}>
-          <CategoryCard 
-            title="For Families" 
+        <div className="relative z-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full mx-auto pb-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+          <CategoryCard
+            title="For Families"
             desc="Spacious, safe, and close to everything that matters."
             link="/families"
           />
-          <CategoryCard 
-            title="For Professionals" 
+          <CategoryCard
+            title="For Professionals"
             desc="Modern homes near tech parks and business hubs."
             link="/professionals"
           />
-          <CategoryCard 
-            title="Corporate Stays" 
+          <CategoryCard
+            title="Corporate Stays"
             desc="Fully managed corporate housing — hassle-free."
             link="/corporate"
           />
