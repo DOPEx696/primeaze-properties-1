@@ -32,7 +32,21 @@ export default function EnquiryForm() {
 
       if (error) throw error;
 
-      // 2. Construct WhatsApp Message
+      // 2. Send Email via API Route
+      const emailRes = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!emailRes.ok) {
+        const errorData = await emailRes.json();
+        console.error('Email API Error:', errorData);
+      }
+
+      // 3. Construct WhatsApp Message
       const message = `Hello PRIMEAZE! I'm interested in finding a property.
       
 Name: ${formData.name}
