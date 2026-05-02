@@ -34,7 +34,7 @@ export default function Testimonials({ testimonials, sectionTitle = "What Our Re
                 </div>
 
                 <p className="text-gray-600 mb-8 flex-grow leading-relaxed italic relative z-10 text-lg">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
 
                 <div className="border-t border-gray-100 pt-6 mt-auto">

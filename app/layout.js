@@ -13,6 +13,21 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "PRIMEAZE | Premium Rental Property Management in Bengaluru",
   description: "Exclusive, hand-visited, perfectly curated rental properties for families, professionals, and corporate clients in Bengaluru. Not available anywhere else.",
+  keywords: ["premium rentals bangalore", "luxury property management", "family homes bangalore", "corporate housing bengaluru"],
+  authors: [{ name: "PRIMEAZE" }],
+  openGraph: {
+    title: "PRIMEAZE | Premium Rental Properties",
+    description: "Curated rental properties in Bengaluru. Not available anywhere else.",
+    url: "https://primeaze.co",
+    siteName: "PRIMEAZE",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PRIMEAZE | Premium Rental Properties",
+    description: "Curated rental properties in Bengaluru. Not available anywhere else.",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -87,7 +87,7 @@ Looking for: ${formData.preference}`;
             <span className="text-gold uppercase tracking-widest text-sm font-bold mb-4 block">Get in Touch</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-montserrat">Find Your Perfect Space</h2>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-lg">
-              Have specific requirements or couldn't find what you're looking for? Reach out to our experts and we'll curate a list of properties just for you.
+              Have specific requirements or couldn&apos;t find what you&apos;re looking for? Reach out to our experts and we&apos;ll curate a list of properties just for you.
             </p>
 
             <div className="space-y-6">
