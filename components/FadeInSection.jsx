@@ -6,19 +6,20 @@ export default function FadeInSection({ children, delay = 0 }) {
   const domRef = useRef();
 
   useEffect(() => {
+    // If IntersectionObserver is not supported, show content immediately
+    if (!window.IntersectionObserver) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setVisible(true);
-          // Once it becomes visible, we can unobserve
-          if (domRef.current) {
-            observer.unobserve(domRef.current);
-          }
         }
       });
     }, {
-      rootMargin: "0px 0px -100px 0px",
-      threshold: 0.1
+      threshold: 0.05 // Trigger sooner
     });
 
     const currentRef = domRef.current;
@@ -36,8 +37,8 @@ export default function FadeInSection({ children, delay = 0 }) {
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-1000 ease-out will-change-[opacity,transform] ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      className={`transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
