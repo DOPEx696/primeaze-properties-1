@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import FadeInSection from './FadeInSection';
+import { insforge } from '@/lib/insforge';
 
 export default function EnquiryForm() {
   const [formData, setFormData] = useState({
@@ -9,15 +10,50 @@ export default function EnquiryForm() {
     email: '',
     preference: ''
   });
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real app, send data to API/Webhook here
-    setTimeout(() => {
+    setLoading(true);
+
+    try {
+      // 1. Store in InsForge Database
+      const { error } = await insforge.database
+        .from('enquiries')
+        .insert([
+          {
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            preference: formData.preference
+          }
+        ]);
+
+      if (error) throw error;
+
+      // 2. Construct WhatsApp Message
+      const message = `Hello PRIMEAZE! I'm interested in finding a property.
+      
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Looking for: ${formData.preference}`;
+
+      const whatsappUrl = `https://wa.me/918217282287?text=${encodeURIComponent(message)}`;
+
+      // 3. Set submitted state and redirect
       setSubmitted(true);
       setFormData({ name: '', phone: '', email: '', preference: '' });
-    }, 800);
+
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, '_blank');
+    } catch (err) {
+      console.error('Error submitting enquiry:', err);
+      alert('Something went wrong. Please try again or contact us directly.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -30,7 +66,7 @@ export default function EnquiryForm() {
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-center gap-16 relative z-10">
-        
+
         {/* Left Side Content */}
         <div className="w-full lg:w-1/2 text-white">
           <FadeInSection>
@@ -39,7 +75,7 @@ export default function EnquiryForm() {
             <p className="text-gray-300 text-lg mb-8 leading-relaxed max-w-lg">
               Have specific requirements or couldn't find what you're looking for? Reach out to our experts and we'll curate a list of properties just for you.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gold">
@@ -81,11 +117,11 @@ export default function EnquiryForm() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <h3 className="text-2xl font-bold text-primary-dark mb-6">Drop an Enquiry</h3>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="name"
                       required
                       value={formData.name}
@@ -94,12 +130,12 @@ export default function EnquiryForm() {
                       placeholder="John Doe"
                     />
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                      <input 
-                        type="tel" 
+                      <input
+                        type="tel"
                         name="phone"
                         required
                         value={formData.phone}
@@ -110,8 +146,8 @@ export default function EnquiryForm() {
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                      <input 
-                        type="email" 
+                      <input
+                        type="email"
                         name="email"
                         required
                         value={formData.email}
@@ -124,7 +160,7 @@ export default function EnquiryForm() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">I am looking for</label>
-                    <select 
+                    <select
                       name="preference"
                       required
                       value={formData.preference}
@@ -139,11 +175,12 @@ export default function EnquiryForm() {
                     </select>
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
-                    className="w-full bg-rust hover:bg-[#80392b] text-white font-bold py-4 rounded-lg mt-4 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    disabled={loading}
+                    className="w-full bg-rust hover:bg-[#80392b] text-white font-bold py-4 rounded-lg mt-4 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Request Callback
+                    {loading ? 'Processing...' : 'Request Callback'}
                   </button>
                   <p className="text-center text-xs text-gray-500 mt-4">We respect your privacy. No spam, ever.</p>
                 </form>

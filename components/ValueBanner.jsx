@@ -2,7 +2,7 @@ import FadeInSection from './FadeInSection';
 
 export default function ValueBanner() {
   return (
-    <div className="bg-rust py-12 px-4 relative overflow-hidden">
+    <div className="bg-[#222222] py-12 px-4 relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
       

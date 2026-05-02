@@ -10,7 +10,6 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#3a0002] via-primary-dark to-primary-dark"></div>
         {/* Decorative gold blur */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-gold/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-light-bg to-transparent z-10"></div>
       </div>
 
       <div className="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center mt-12 mb-20">
