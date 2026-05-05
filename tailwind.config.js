@@ -15,7 +15,8 @@ module.exports = {
         'text-dark': '#222222',
       },
       fontFamily: {
-        montserrat: ['var(--font-montserrat)', 'sans-serif'],
+        jakarta: ['var(--font-jakarta)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',

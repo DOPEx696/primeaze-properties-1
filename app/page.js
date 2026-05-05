@@ -1,35 +1,32 @@
 import Hero from '@/components/Hero';
+import BrandIdentity from '@/components/BrandIdentity';
 import ValueBanner from '@/components/ValueBanner';
 import PropertySection from '@/components/PropertySection';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import EnquiryForm from '@/components/EnquiryForm';
-import { properties } from '@/data/properties';
+import { insforge } from '@/lib/insforge';
 import { testimonials } from '@/data/testimonials';
 
-export default function Home() {
-  // Get 3 featured properties (one from each category)
-  const featuredProperties = [
-    properties.find(p => p.type === 'families'),
-    properties.find(p => p.type === 'professionals'),
-    properties.find(p => p.type === 'corporate')
-  ].filter(Boolean);
+export default async function Home() {
+  // Fetch properties from InsForge
+  const { data: allProperties } = await insforge.database.from('properties').select('*');
+  const properties = allProperties || [];
+
+  // Get 3 featured properties
+  const featuredProperties = properties.slice(0, 3);
 
   // Get a mix of testimonials
-  const featuredTestimonials = [
-    testimonials.find(t => t.type === 'families'),
-    testimonials.find(t => t.type === 'professionals'),
-    testimonials.find(t => t.type === 'corporate')
-  ].filter(Boolean);
+  const featuredTestimonials = testimonials.slice(0, 3);
 
   return (
     <>
       <Hero 
-        tagline="Your Home in Bengaluru, Curated by Experts"
-        subtext="Limited properties. Unlimited comfort. We hand-pick the city's finest rentals."
+        tagline="We find, you choose, move in."
+        subtext="The ideal solution for those who demand a better home and refined lifestyle. No noise, no pressure—just clarity."
         showCategoryCards={true}
       />
-      <ValueBanner />
+      <BrandIdentity />
       <PropertySection 
         title="Featured Exclusives" 
         properties={featuredProperties} 

@@ -7,8 +7,9 @@ export default function Footer() {
         
         {/* Brand & Address */}
         <div className="col-span-1 md:col-span-1">
-          <h3 className="text-gold font-bold text-2xl tracking-wider mb-4">PRIMEAZE</h3>
-          <p className="text-gray-300 mb-6 text-sm leading-relaxed">
+          <h3 className="text-gold font-extrabold text-2xl tracking-tighter mb-4 font-jakarta">PRIMEAZE</h3>
+          <p className="text-gray-300 mb-6 text-sm leading-relaxed font-inter">
+            We find, you choose, move in. <br/>
             Premium rental property management curated for discerning residents in Bengaluru.
           </p>
           <div className="text-sm text-gray-400 space-y-2">
@@ -20,10 +21,12 @@ export default function Footer() {
         {/* Quick Links */}
         <div>
           <h4 className="font-semibold text-lg mb-4 text-white">Find a Home</h4>
-          <ul className="space-y-3 text-gray-300 text-sm">
+          <ul className="space-y-3 text-gray-300 text-sm font-inter">
             <li><Link href="/families" className="hover:text-gold transition">For Families</Link></li>
             <li><Link href="/professionals" className="hover:text-gold transition">For Professionals</Link></li>
             <li><Link href="/corporate" className="hover:text-gold transition">Corporate Stays</Link></li>
+            <li><Link href="/students" className="hover:text-gold transition">Student Stays</Link></li>
+            <li><Link href="/about" className="hover:text-gold transition font-bold text-white">About Us</Link></li>
           </ul>
         </div>
 

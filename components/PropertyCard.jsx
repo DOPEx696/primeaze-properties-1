@@ -29,7 +29,7 @@ export default function PropertyCard({ property, index }) {
             {/* FOMO Badge */}
             <div className="absolute top-4 left-4 z-10 bg-rust text-white text-xs font-bold px-3 py-1.5 rounded shadow-lg uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-              {property.fomoText}
+              {property.fomo_text || property.fomoText}
             </div>
 
             {/* Main Image */}
@@ -80,7 +80,7 @@ export default function PropertyCard({ property, index }) {
             <div>
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-primary-dark font-montserrat">{property.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-primary-dark font-jakarta tracking-tight">{property.title}</h3>
                   <p className="text-gray-500 font-medium flex items-center mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -132,7 +132,7 @@ export default function PropertyCard({ property, index }) {
                   Proximity Points
                 </h4>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
-                  {property.nearbyPlaces.map((place, idx) => (
+                  {(property.nearby_places || property.nearbyPlaces || []).map((place, idx) => (
                     <li key={idx} className="flex justify-between items-center border-b border-gray-100 pb-1 last:border-0 last:pb-0">
                       <span className="truncate pr-2">{place.name}</span>
                       <span className="font-semibold text-primary-dark whitespace-nowrap">{place.distance}</span>

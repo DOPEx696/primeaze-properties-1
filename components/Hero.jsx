@@ -17,11 +17,11 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
           Exclusively Curated Properties
         </span>
 
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+        <h1 className="text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-8 leading-tight font-jakarta animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           {tagline}
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mb-10 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+        <p className="text-xl md:text-2xl text-gray-400 font-medium max-w-2xl mb-12 animate-fade-in-up font-inter" style={{ animationDelay: '300ms' }}>
           {subtext}
         </p>
 
@@ -55,21 +55,26 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
       </div>
 
       {showCategoryCards && (
-        <div className="relative z-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full mx-auto pb-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+        <div className="relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl w-full mx-auto pb-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
           <CategoryCard
-            title="For Families"
-            desc="Spacious, safe, and close to everything that matters."
+            title="Families"
+            desc="Safe, spacious homes."
             link="/families"
           />
           <CategoryCard
-            title="For Professionals"
-            desc="Modern homes near tech parks and business hubs."
+            title="Professionals"
+            desc="Near tech parks."
             link="/professionals"
           />
           <CategoryCard
-            title="Corporate Stays"
-            desc="Fully managed corporate housing — hassle-free."
+            title="Corporate"
+            desc="Managed housing."
             link="/corporate"
+          />
+          <CategoryCard
+            title="Students"
+            desc="Cozy & budget-friendly."
+            link="/students"
           />
         </div>
       )}
@@ -81,7 +86,7 @@ function CategoryCard({ title, desc, link }) {
   return (
     <Link href={link} className="group flex flex-col items-start p-8 bg-white/5 backdrop-blur border border-white/10 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-2 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gold transition-colors">{title}</h3>
+      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gold transition-colors font-jakarta">{title}</h3>
       <p className="text-gray-400 text-sm">{desc}</p>
       <div className="mt-8 text-gold uppercase text-xs font-semibold tracking-widest flex items-center gap-2">
         View Properties

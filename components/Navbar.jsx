@@ -26,6 +26,8 @@ export default function Navbar() {
     { name: 'Families', path: '/families' },
     { name: 'Professionals', path: '/professionals' },
     { name: 'Corporate', path: '/corporate' },
+    { name: 'Students', path: '/students' },
+    { name: 'About', path: '/about' },
   ];
 
   const handleEnquireClick = (e) => {
@@ -50,7 +52,7 @@ export default function Navbar() {
           
           <Link href="/" className="flex items-center">
             {/* Logo Image Placeholder - For now, styled text */}
-            <span className="text-gold font-bold text-2xl tracking-wider">
+            <span className="text-gold font-extrabold text-2xl tracking-tighter font-jakarta">
               PRIMEAZE
             </span>
           </Link>

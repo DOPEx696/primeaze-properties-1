@@ -1,24 +1,25 @@
 import Hero from '@/components/Hero';
-import ValueBanner from '@/components/ValueBanner';
+import PsychologicalValue from '@/components/PsychologicalValue';
 import PropertySection from '@/components/PropertySection';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import EnquiryForm from '@/components/EnquiryForm';
-import { properties } from '@/data/properties';
+import { insforge } from '@/lib/insforge';
 import { testimonials } from '@/data/testimonials';
 
-export default function ProfessionalsPage() {
-  const proProperties = properties.filter(p => p.type === 'professionals');
+export default async function ProfessionalsPage() {
+  const { data: allProperties } = await insforge.database.from('properties').select('*').match({ type: 'professionals' });
+  const proProperties = allProperties || [];
   const proTestimonials = testimonials.filter(t => t.type === 'professionals');
 
   return (
     <>
       <Hero 
         tagline="Live Close to Work. Live Well."
-        subtext="Modern homes near tech parks and business hubs. Designed for the modern professional."
+        subtext="We find, you choose, move in. Modern homes near tech parks and business hubs."
         showCategoryCards={false}
       />
-      <ValueBanner />
+      <PsychologicalValue category="a Professional Home" />
       <PropertySection 
         title="Curated Homes for Professionals" 
         properties={proProperties} 

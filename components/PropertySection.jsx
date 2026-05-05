@@ -7,8 +7,8 @@ export default function PropertySection({ properties, title = "Curated Propertie
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <FadeInSection>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary-dark mb-4 font-montserrat">{title}</h2>
-            <div className="w-24 h-1 bg-gold mx-auto"></div>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6 font-jakarta tracking-tight">{title}</h2>
+            <div className="w-24 h-1.5 bg-gold mx-auto rounded-full"></div>
           </div>
         </FadeInSection>
 

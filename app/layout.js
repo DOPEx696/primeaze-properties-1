@@ -1,41 +1,41 @@
-import { Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-const montserrat = Montserrat({ 
+const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
-  variable: '--font-montserrat',
-  weight: ['300', '400', '500', '600', '700', '800']
+  variable: '--font-jakarta',
+  weight: ['400', '500', '600', '700', '800']
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter',
 });
 
 export const metadata = {
-  title: "PRIMEAZE | Premium Rental Property Management in Bengaluru",
-  description: "Exclusive, hand-visited, perfectly curated rental properties for families, professionals, and corporate clients in Bengaluru. Not available anywhere else.",
+  title: "PRIMEAZE | We find, you choose, move in.",
+  description: "Exclusive rental property management in Bengaluru. Property hunt in your desired areas with end-to-end support. We find, you choose, move in.",
   keywords: ["premium rentals bangalore", "luxury property management", "family homes bangalore", "corporate housing bengaluru"],
   authors: [{ name: "PRIMEAZE" }],
   openGraph: {
-    title: "PRIMEAZE | Premium Rental Properties",
-    description: "Curated rental properties in Bengaluru. Not available anywhere else.",
+    title: "PRIMEAZE | We find, you choose, move in.",
+    description: "Curated rental properties in Bengaluru. Property hunt in your desired areas.",
     url: "https://primeaze.co",
     siteName: "PRIMEAZE",
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "PRIMEAZE | Premium Rental Properties",
-    description: "Curated rental properties in Bengaluru. Not available anywhere else.",
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${montserrat.variable} font-montserrat antialiased bg-light-bg text-text-dark`}>
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
+      <body className={`${plusJakarta.variable} ${inter.variable} font-inter antialiased bg-light-bg text-text-dark overflow-x-hidden`}>
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen overflow-x-hidden">
           {children}
         </main>
         <WhatsAppButton />
