@@ -19,7 +19,7 @@ export default async function FamiliesPage() {
         subtext="We find, you choose, move in. Spacious, safe, and close to everything that matters."
         showCategoryCards={false}
       />
-      <PsychologicalValue category="a Family Home" />
+      <PsychologicalValue category="a Family Home" type="families" />
       <PropertySection 
         title="Curated Homes for Families" 
         properties={familyProperties} 

@@ -51,29 +51,63 @@ export const testimonials = [
     text: "Finally a realty service that understands what working professionals need—good internet pre-installed, easy commute, and zero landlord interference. Top notch."
   },
 
-  // --- CORPORATE ---
+  // --- COMMERCIAL SPACES ---
   {
-    id: "t-corp-1",
-    type: "corporate",
+    id: "t-comm-1",
+    type: "commercial",
     name: "TechNova Solutions",
     profession: "HR Department",
     stars: 5,
-    text: "We use PRIMEAZE exclusively for all our expat and senior management relocations. The transition is seamless and their managed properties in Hebbal are world-class."
+    text: "We use PRIMEAZE exclusively for all our management relocations and office spaces. The transition is seamless and their managed commercial properties in Hebbal are world-class."
   },
   {
-    id: "t-corp-2",
-    type: "corporate",
+    id: "t-comm-2",
+    type: "commercial",
     name: "GlobalFin Inc.",
     profession: "Operations Head",
     stars: 5,
-    text: "Hassle-free corporate leasing. They understand our compliance needs and the invoice structures. The properties themselves are stunning."
+    text: "Hassle-free commercial leasing. They understand our compliance needs and the invoice structures. The spaces themselves are stunning and well-maintained."
   },
   {
-    id: "t-corp-3",
-    type: "corporate",
+    id: "t-comm-3",
+    type: "commercial",
     name: "Sarah Jenkins",
     profession: "Country Manager",
     stars: 5,
-    text: "My company arranged my stay through PRIMEAZE. Arrived from London to a fully stocked, beautifully lit penthouse in Yelahanka. Flawless experience."
+    text: "My company arranged my stay and workspace through PRIMEAZE. Arrived to a fully stocked, beautifully lit penthouse and a prime office location. Flawless experience."
+  },
+
+  // --- STUDENTS ---
+  {
+    id: "t-stu-1",
+    type: "students",
+    name: "Arjun Mehta",
+    profession: "Student, Acharya Institute",
+    stars: 5,
+    text: "Finding a decent place near Acharya Institute was a nightmare until I found Primeaze. They found me a secure, clean apartment in Hesaraghatta that fits my budget perfectly. No more dealing with sketchy brokers!"
+  },
+  {
+    id: "t-stu-2",
+    type: "students",
+    name: "Sneha Reddy",
+    profession: "Student, BMSIT Yelahanka",
+    stars: 5,
+    text: "As a student in Yelahanka, I wanted something close to campus but safe. Primeaze literally did the hunt for me and found a great co-living space near RMZ Galleria. The verify-to-hold feature is a lifesaver when you're busy with exams."
+  },
+  {
+    id: "t-stu-3",
+    type: "students",
+    name: "Kevin D'Souza",
+    profession: "Student, Acharya Institute",
+    stars: 5,
+    text: "The student-specific hunting service at Primeaze is unmatched. They understood my need for high-speed internet and quiet surroundings for studies near Acharya Campus. Professional and transparent throughout."
+  },
+  {
+    id: "t-stu-4",
+    type: "students",
+    name: "Aditi Rao",
+    profession: "Student, Yelahanka Area",
+    stars: 5,
+    text: "Moved from Mumbai for my masters in Yelahanka. Primeaze made the transition so smooth. They even helped me with the local area guide. Best for students moving to Bangalore for the first time."
   }
 ];

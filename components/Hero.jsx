@@ -67,9 +67,9 @@ export default function Hero({ tagline, subtext, showCategoryCards = false }) {
             link="/professionals"
           />
           <CategoryCard
-            title="Corporate"
-            desc="Managed housing."
-            link="/corporate"
+            title="Commercial Spaces"
+            desc="Office & retail spaces."
+            link="/commercial"
           />
           <CategoryCard
             title="Students"

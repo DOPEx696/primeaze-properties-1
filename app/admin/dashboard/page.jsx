@@ -11,6 +11,12 @@ export default function AdminDashboard() {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
+  const normalizeImageUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('http') || url.startsWith('/')) return url;
+    return `/${url}`;
+  };
+
   useEffect(() => {
     const checkUser = async () => {
       const { data } = await insforge.auth.getCurrentUser();
@@ -118,7 +124,7 @@ export default function AdminDashboard() {
               <div className="relative w-48 h-32 rounded-xl overflow-hidden flex-shrink-0 bg-[#1e1e1e]">
                 {property.images?.[0] ? (
                   <Image
-                    src={property.images[0]}
+                    src={normalizeImageUrl(property.images[0])}
                     alt={property.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

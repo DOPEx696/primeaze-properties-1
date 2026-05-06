@@ -8,8 +8,7 @@ import { insforge } from '@/lib/insforge';
 export default function EnquiryForm() {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
-    email: '',
+    location: '',
     preference: ''
   });
   const [loading, setLoading] = useState(false);
@@ -26,8 +25,7 @@ export default function EnquiryForm() {
         .insert([
           {
             name: formData.name,
-            phone: formData.phone,
-            email: formData.email,
+            location: formData.location,
             preference: formData.preference
           }
         ]);
@@ -41,11 +39,11 @@ export default function EnquiryForm() {
         body: JSON.stringify(formData),
       });
 
-      const message = `Hello PRIMEAZE! I'm interested in finding a property.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nLooking for: ${formData.preference}`;
+      const message = `Hello PRIMEAZE! I'm interested in finding a property.\n\nName: ${formData.name}\nPreferred Location: ${formData.location}\nTenant Type: ${formData.preference}`;
       const whatsappUrl = `https://wa.me/918217282287?text=${encodeURIComponent(message)}`;
 
       setSubmitted(true);
-      setFormData({ name: '', phone: '', email: '', preference: '' });
+      setFormData({ name: '', location: '', preference: '' });
 
       // Open WhatsApp after a short delay to let the animation play
       setTimeout(() => {
@@ -83,25 +81,26 @@ export default function EnquiryForm() {
               Our experts specialize in <span className="text-white font-semibold">property hunting in your desired areas</span>. We provide end-to-end support to ensure your move-in is seamless and stress-free.
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-primary-dark transition-all duration-300">
-                  <Phone className="w-6 h-6" />
+            <div className="flex flex-wrap gap-6 mt-12">
+              <a href="tel:+918217282287" className="group flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 pr-8 hover:bg-gold transition-all duration-500 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center text-gold group-hover:bg-white/20 group-hover:text-primary-dark transition-colors">
+                  <Phone className="w-5 h-5" />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Call Us Direct</p>
-                  <p className="text-xl font-bold">+91 821 728 2287</p>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Call Direct</span>
+                  <span className="text-lg font-bold group-hover:text-primary-dark transition-colors">+91 821 728 2287</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-primary-dark transition-all duration-300">
-                  <Mail className="w-6 h-6" />
+              </a>
+
+              <a href="mailto:primeaze.co@gmail.com" className="group flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 pr-8 hover:bg-gold transition-all duration-500 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center text-gold group-hover:bg-white/20 group-hover:text-primary-dark transition-colors">
+                  <Mail className="w-5 h-5" />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Email Inquiry</p>
-                  <p className="text-xl font-bold">primeaze.co@gmail.com</p>
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Email Inquiry</span>
+                  <span className="text-lg font-bold group-hover:text-primary-dark transition-colors">primeaze.co@gmail.com</span>
                 </div>
-              </div>
+              </a>
             </div>
           </FadeInSection>
         </div>
@@ -119,7 +118,7 @@ export default function EnquiryForm() {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1, rotate: [0, 10, -10, 0] }}
-                  transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
                   className="w-24 h-24 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-green-500/30"
                 >
                   <CheckCircle className="w-12 h-12" />
@@ -161,31 +160,20 @@ export default function EnquiryForm() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative group">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-gold transition-colors" />
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all font-medium"
-                        placeholder="Phone Number"
-                      />
-                    </div>
-                    <div className="relative group">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-gold transition-colors" />
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all font-medium"
-                        placeholder="Email Address"
-                      />
-                    </div>
+                  <div className="relative group">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <input
+                      type="text"
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleChange}
+                      className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all font-medium"
+                      placeholder="Preferred Location"
+                    />
                   </div>
 
                   <div className="relative group">
@@ -197,11 +185,11 @@ export default function EnquiryForm() {
                       onChange={handleChange}
                       className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all text-gray-700 font-medium appearance-none"
                     >
-                      <option value="" disabled>What are you looking for?</option>
-                      <option value="families">Premium Family Home</option>
-                      <option value="professionals">Professional Stay</option>
-                      <option value="corporate">Corporate Leases</option>
-                      <option value="other">Custom Requirement</option>
+                      <option value="" disabled>Tenant Type?</option>
+                      <option value="families">Family</option>
+                      <option value="professionals">Working Professional</option>
+                      <option value="commercial">Commercial Spaces & Housing</option>
+                      <option value="students">Students</option>
                     </select>
                   </div>
 

@@ -9,7 +9,7 @@ import { testimonials } from '@/data/testimonials';
 import FadeInSection from '@/components/FadeInSection';
 
 export default async function StudentsPage() {
-  const studentTestimonials = testimonials.filter(t => t.type === 'students' || t.type === 'professionals'); 
+  const studentTestimonials = testimonials.filter(t => t.type === 'students'); 
 
   return (
     <>
@@ -18,7 +18,7 @@ export default async function StudentsPage() {
         subtext="We find, you choose, move in. Budget-friendly, secure, and close to your campus."
         showCategoryCards={false}
       />
-      <PsychologicalValue category="a Student Stay" />
+      <PsychologicalValue category="a Student Stay" type="students" />
       
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-4 text-center">

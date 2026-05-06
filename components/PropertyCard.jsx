@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import ImageLightbox from './ImageLightbox';
 import FadeInSection from './FadeInSection';
+import Image from 'next/image';
 
 export default function PropertyCard({ property, index }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -18,6 +19,13 @@ export default function PropertyCard({ property, index }) {
   const formattedDeposit = property.deposit > 99999 
     ? `${(property.deposit / 100000).toFixed(1)} Lakhs` 
     : new Intl.NumberFormat('en-IN').format(property.deposit);
+
+  // Helper to ensure image URLs are valid for next/image
+  const normalizeImageUrl = (url) => {
+    if (!url) return 'https://via.placeholder.com/800x600?text=No+Image';
+    if (url.startsWith('http') || url.startsWith('/')) return url;
+    return `/${url}`; // Prepend slash if missing
+  };
 
   return (
     <>
@@ -37,13 +45,12 @@ export default function PropertyCard({ property, index }) {
               className="h-64 lg:h-96 w-full cursor-pointer relative overflow-hidden bg-gray-200"
               onClick={() => openLightbox(0)}
             >
-              <img 
-                src={property.images[0]} 
+              <Image 
+                src={normalizeImageUrl(property.images[0])} 
                 alt={property.title} 
+                fill
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/800x600?text=Property+Image';
-                }}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-primary-dark/0 group-hover:bg-primary-dark/20 transition-colors flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 bg-white/90 text-primary-dark px-4 py-2 rounded font-bold shadow-lg transition-opacity flex items-center gap-2 backdrop-blur-sm">
@@ -60,7 +67,12 @@ export default function PropertyCard({ property, index }) {
                   className="w-1/3 h-20 relative cursor-pointer opacity-80 hover:opacity-100 transition rounded overflow-hidden"
                   onClick={() => openLightbox(idx + 1)}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=Thumb'; }} />
+                  <Image 
+                    src={normalizeImageUrl(img)} 
+                    alt="" 
+                    fill
+                    className="w-full h-full object-cover" 
+                  />
                 </div>
               ))}
               {property.images.length > 4 && (
@@ -68,7 +80,12 @@ export default function PropertyCard({ property, index }) {
                   className="w-1/3 h-20 relative cursor-pointer bg-gray-800 rounded overflow-hidden flex items-center justify-center text-white font-bold"
                   onClick={() => openLightbox(4)}
                 >
-                  <img src={property.images[4]} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" />
+                  <Image 
+                    src={normalizeImageUrl(property.images[4])} 
+                    alt="" 
+                    fill
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" 
+                  />
                   <span className="relative z-10">+{property.images.length - 4} More</span>
                 </div>
               )}

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -25,9 +26,8 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Families', path: '/families' },
     { name: 'Professionals', path: '/professionals' },
-    { name: 'Corporate', path: '/corporate' },
+    { name: 'Commercial Spaces', path: '/commercial' },
     { name: 'Students', path: '/students' },
-    { name: 'About', path: '/about' },
   ];
 
   const handleEnquireClick = (e) => {
@@ -50,11 +50,20 @@ export default function Navbar() {
       <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-primary-dark shadow-lg py-3' : 'bg-primary-dark/95 backdrop-blur-md py-5'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
           
-          <Link href="/" className="flex items-center">
-            {/* Logo Image Placeholder - For now, styled text */}
-            <span className="text-gold font-extrabold text-2xl tracking-tighter font-jakarta">
-              PRIMEAZE
-            </span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 transition-transform duration-500 group-hover:scale-110">
+              <Image 
+                src="/images/logo.png" 
+                alt="Primeaze Logo" 
+                fill 
+                className="object-contain filter-gold drop-shadow-[0_0_8px_rgba(234,194,128,0.3)]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-gold font-bold text-3xl tracking-tight font-jakarta group-hover:text-white transition-colors duration-300">
+                PrimeAze
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

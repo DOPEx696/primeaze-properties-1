@@ -38,8 +38,8 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md bg-[#161616] border border-white/5 rounded-2xl p-8 shadow-2xl relative z-10 backdrop-blur-xl">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">Admin Portal</h1>
-          <p className="text-gray-400">Welcome back to Primeaze Properties</p>
+          <h1 className="text-3xl font-bold text-white mb-2 tracking-tight font-jakarta">PrimeAze Admin</h1>
+          <p className="text-gray-400 font-inter">Precision in Property Management</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">

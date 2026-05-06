@@ -14,12 +14,12 @@ export default function BrandIdentity() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-40">
           <FadeInSection>
             <div className="relative">
-              <span className="text-gold font-bold uppercase tracking-[0.2em] text-sm mb-6 block">The Primeaze Difference</span>
+              <span className="text-gold font-bold uppercase tracking-[0.2em] text-sm mb-6 block">The PrimeAze Difference</span>
               <h2 className="text-5xl md:text-6xl font-bold font-jakarta leading-tight mb-8">
-                Why Choose <br/><span className="text-gold">PRIMEAZE?</span>
+                Why Choose <br/><span className="text-gold">PrimeAze?</span>
               </h2>
               <p className="text-gray-400 text-xl leading-relaxed mb-10 font-inter">
-                At PRIMEAZE, we focus on <span className="text-white font-semibold italic">quality over commission</span>. We don&apos;t just show you houses; we bring you carefully filtered and verified properties you can truly trust.
+                At PrimeAze, we focus on <span className="text-white font-semibold italic">quality over commission</span>. We don&apos;t just show you houses; we bring you carefully filtered and verified properties you can truly trust.
               </p>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -52,7 +52,7 @@ export default function BrandIdentity() {
                  We believe renting shouldn&apos;t be a struggle. Most people don&apos;t struggle to find homes—they struggle with the uncertainty, the noise, and the lack of guidance around it. 
                </p>
                <div className="p-6 bg-white/5 rounded-2xl border border-white/5 italic text-gray-300">
-                 &quot;Primeaze was built as the ideal solution for those who demand a better home and a more refined lifestyle.&quot;
+                 &quot;PrimeAze was built as the ideal solution for those who demand a better home and a more refined lifestyle.&quot;
                </div>
             </div>
           </FadeInSection>

@@ -26,3 +26,7 @@ html {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.filter-gold {
+  filter: invert(85%) sepia(31%) saturate(718%) hue-rotate(331deg) brightness(97%) contrast(93%);
+}

@@ -36,7 +36,7 @@ export default function ValueBanner() {
         <div className="text-center mb-16">
           <FadeInSection>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-jakarta">
-              The <span className="text-gold">Primeaze</span> Difference
+              The <span className="text-gold">PrimeAze</span> Difference
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
           </FadeInSection>

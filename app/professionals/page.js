@@ -19,7 +19,7 @@ export default async function ProfessionalsPage() {
         subtext="We find, you choose, move in. Modern homes near tech parks and business hubs."
         showCategoryCards={false}
       />
-      <PsychologicalValue category="a Professional Home" />
+      <PsychologicalValue category="a Professional Home" type="professionals" />
       <PropertySection 
         title="Curated Homes for Professionals" 
         properties={proProperties} 

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -7,7 +8,17 @@ export default function Footer() {
         
         {/* Brand & Address */}
         <div className="col-span-1 md:col-span-1">
-          <h3 className="text-gold font-extrabold text-2xl tracking-tighter mb-4 font-jakarta">PRIMEAZE</h3>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="relative w-10 h-10">
+              <Image 
+                src="/images/logo.png" 
+                alt="Primeaze Logo" 
+                fill 
+                className="object-contain filter-gold drop-shadow-[0_0_8px_rgba(234,194,128,0.2)]"
+              />
+            </div>
+            <h3 className="text-gold font-bold text-3xl tracking-tight font-jakarta">PrimeAze</h3>
+          </div>
           <p className="text-gray-300 mb-6 text-sm leading-relaxed font-inter">
             We find, you choose, move in. <br/>
             Premium rental property management curated for discerning residents in Bengaluru.
@@ -24,9 +35,8 @@ export default function Footer() {
           <ul className="space-y-3 text-gray-300 text-sm font-inter">
             <li><Link href="/families" className="hover:text-gold transition">For Families</Link></li>
             <li><Link href="/professionals" className="hover:text-gold transition">For Professionals</Link></li>
-            <li><Link href="/corporate" className="hover:text-gold transition">Corporate Stays</Link></li>
+            <li><Link href="/commercial" className="hover:text-gold transition">Commercial Spaces</Link></li>
             <li><Link href="/students" className="hover:text-gold transition">Student Stays</Link></li>
-            <li><Link href="/about" className="hover:text-gold transition font-bold text-white">About Us</Link></li>
           </ul>
         </div>
 

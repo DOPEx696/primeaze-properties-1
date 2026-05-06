@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { insforge } from '@/lib/insforge';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function AddPropertyPage() {
   const [loading, setLoading] = useState(false);
@@ -169,7 +170,7 @@ export default function AddPropertyPage() {
                 >
                   <option value="families">Families</option>
                   <option value="professionals">Professionals</option>
-                  <option value="corporate">Corporate</option>
+                  <option value="commercial">Commercial Spaces</option>
                 </select>
               </div>
 
@@ -314,11 +315,16 @@ export default function AddPropertyPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {formData.images.map((img, idx) => (
                 <div key={idx} className="relative aspect-video rounded-xl overflow-hidden border border-white/10">
-                  <img src={img} alt="" className="object-cover w-full h-full" />
+                  <Image 
+                    src={img} 
+                    alt="" 
+                    fill 
+                    className="object-cover w-full h-full" 
+                  />
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, images: formData.images.filter((_, i) => i !== idx) })}
-                    className="absolute top-2 right-2 bg-red-500 p-1 rounded-full text-xs"
+                    className="absolute top-2 right-2 bg-red-500 p-1 rounded-full text-xs z-10"
                   >
                     ✕
                   </button>

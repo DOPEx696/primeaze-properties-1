@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-const plusJakarta = Plus_Jakarta_Sans({ 
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: '--font-jakarta',
   weight: ['400', '500', '600', '700', '800']
@@ -17,11 +17,11 @@ const inter = Inter({
 
 export const metadata = {
   title: "PRIMEAZE | We find, you choose, move in.",
-  description: "Exclusive rental property management in Bengaluru. Property hunt in your desired areas with end-to-end support. We find, you choose, move in.",
-  keywords: ["premium rentals bangalore", "luxury property management", "family homes bangalore", "corporate housing bengaluru"],
-  authors: [{ name: "PRIMEAZE" }],
+  description: "Exclusive rental property management in Bengaluru. Property hunt in your desired areas with end-to-end support. We find, you choose, move in. PrimeAze",
+  keywords: ["premium rentals bangalore", "luxury property management", "family homes bangalore", "Commercial Spaces bengaluru"],
+  authors: [{ name: "PrimeAze" }],
   openGraph: {
-    title: "PRIMEAZE | We find, you choose, move in.",
+    title: "PrimeAze | We find, you choose, move in.",
     description: "Curated rental properties in Bengaluru. Property hunt in your desired areas.",
     url: "https://primeaze.co",
     siteName: "PRIMEAZE",
