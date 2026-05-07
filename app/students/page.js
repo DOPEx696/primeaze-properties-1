@@ -8,7 +8,7 @@ import { insforge } from '@/lib/insforge';
 import { testimonials } from '@/data/testimonials';
 import FadeInSection from '@/components/FadeInSection';
 
-export default async function StudentsPage() {
+export default function StudentsPage() {
   const studentTestimonials = testimonials.filter(t => t.type === 'students'); 
 
   return (

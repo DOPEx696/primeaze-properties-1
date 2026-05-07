@@ -65,6 +65,7 @@ export default function ImageLightbox({ images, currentIndex, isOpen, onClose, o
       <div className="relative w-full max-w-6xl h-full max-h-[85vh] px-4 md:px-20 flex items-center justify-center p-4" onClick={onClose}>
         {/* We use a div click to close, but stop propagation on the image itself */}
         <div className="relative max-w-full max-h-full" onClick={e => e.stopPropagation()}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={images[currentIndex]} 
             alt={`Property image ${currentIndex + 1}`}

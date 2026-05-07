@@ -83,7 +83,7 @@ export default function LoginPage() {
         </form>
 
         <div className="mt-8 pt-8 border-t border-white/5 text-center">
-          <p className="text-gray-500 text-sm italic">"Precision in Property Management"</p>
+          <p className="text-gray-500 text-sm italic">&quot;Precision in Property Management&quot;</p>
         </div>
       </div>
     </div>
