@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Hero({ tagline, subtext, showCategoryCards = false }) {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 md:px-8 bg-primary-dark pt-20 overflow-hidden">
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 md:px-8 bg-primary-dark pt-40 overflow-hidden">
 
       {/* Background with abstract shapes/gradients since we don't have images yet */}
       <div className="absolute inset-0 z-0">

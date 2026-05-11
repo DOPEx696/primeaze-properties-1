@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   try {
-    const { name, phone, email, preference } = await request.json();
+    const { name, location, email, preference } = await request.json();
 
     console.log('Attempting to send email...');
 
@@ -28,8 +28,8 @@ export async function POST(request) {
           <h2 style="color: #c2410c; border-bottom: 2px solid #c2410c; padding-bottom: 10px;">New Property Enquiry</h2>
           <div style="margin: 20px 0;">
             <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
             <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Location:</strong> ${location}</p>
             <p><strong>Interested In:</strong> ${preference}</p>
           </div>
           <hr style="border: 0; border-top: 1px solid #eee;" />

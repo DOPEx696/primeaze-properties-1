@@ -171,6 +171,7 @@ export default function AddPropertyPage() {
                   <option value="families">Families</option>
                   <option value="professionals">Professionals</option>
                   <option value="commercial">Commercial Spaces</option>
+                  <option value="students">Students</option>
                 </select>
               </div>
 

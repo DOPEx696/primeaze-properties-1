@@ -6,8 +6,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 export default function EditPropertyPage({ params }) {
-  const unwrappedParams = use(params);
-  const { id } = unwrappedParams;
+  const { id } = params;
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -119,8 +118,10 @@ export default function EditPropertyPage({ params }) {
     e.preventDefault();
     setSubmitting(true);
 
+    const { id: _id, ...updateData } = formData;
+
     const { error } = await insforge.database.from('properties').update({
-      ...formData,
+      ...updateData,
       rent: parseInt(formData.rent),
       deposit: parseInt(formData.deposit),
       sqft: parseInt(formData.sqft),

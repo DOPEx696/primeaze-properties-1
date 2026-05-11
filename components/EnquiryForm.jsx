@@ -8,6 +8,7 @@ import { insforge } from '@/lib/insforge';
 export default function EnquiryForm() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     location: '',
     preference: ''
   });
@@ -25,6 +26,7 @@ export default function EnquiryForm() {
         .insert([
           {
             name: formData.name,
+            email: formData.email,
             location: formData.location,
             preference: formData.preference
           }
@@ -39,16 +41,14 @@ export default function EnquiryForm() {
         body: JSON.stringify(formData),
       });
 
-      const message = `Hello PRIMEAZE! I'm interested in finding a property.\n\nName: ${formData.name}\nPreferred Location: ${formData.location}\nTenant Type: ${formData.preference}`;
+      const message = `Hello PRIMEAZE! I'm interested in finding a property.\n\nName: ${formData.name}\nEmail: ${formData.email}\nPreferred Location: ${formData.location}\nTenant Type: ${formData.preference}`;
       const whatsappUrl = `https://wa.me/918217282287?text=${encodeURIComponent(message)}`;
 
       setSubmitted(true);
-      setFormData({ name: '', location: '', preference: '' });
+      setFormData({ name: '', email: '', location: '', preference: '' });
 
-      // Open WhatsApp after a short delay to let the animation play
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-      }, 2000);
+      // Redirect directly to WhatsApp to avoid popup blockers
+      window.location.href = whatsappUrl;
     } catch (err) {
       console.error('Error submitting enquiry:', err);
       alert('Something went wrong. Please try again or contact us directly.');
@@ -161,6 +161,19 @@ export default function EnquiryForm() {
                   </div>
 
                   <div className="relative group">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-gold transition-colors" />
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all font-medium"
+                      placeholder="Your Email Address"
+                    />
+                  </div>
+
+                  <div className="relative group">
                     <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-gold transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -208,7 +221,7 @@ export default function EnquiryForm() {
                     )}
                   </button>
                   <p className="text-center text-xs text-gray-400 font-medium tracking-wide uppercase">
-                    🔒 Guaranteed Privacy • No Spam
+                    Guaranteed Privacy — Your details are safe with us.
                   </p>
                 </form>
               </motion.div>
